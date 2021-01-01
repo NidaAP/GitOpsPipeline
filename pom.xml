@@ -24,6 +24,13 @@
 
 		</dependency>
 	</dependencies>
-
+	<properties>
+	<maven.compiler.source>6</maven.compiler.source>
+	<maven.compiler.target>1.6</maven.compiler.target>
+	
+	<sonar.projectKey>NidaAP_GitOpsPipeline</sonar.projectKey>
+	<sonar.organization>nidaap</sonar.organization>
+	<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+	</properties>
 	
 </project>
