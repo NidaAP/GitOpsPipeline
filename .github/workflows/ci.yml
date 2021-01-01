@@ -23,9 +23,6 @@ jobs:
   
   StaticAnalysis:
     needs: build
-    name: sonarcloud trigger
-    runs-on: ubuntu-latest
-    steps:
     name: Static Analysis
     runs-on: ubuntu-latest
     steps:
