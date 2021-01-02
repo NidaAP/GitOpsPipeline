@@ -77,12 +77,6 @@ jobs:
     
     steps:
       - name: cobertura
+        run: mvn -B clean test cobertura:cobertura
    
-        uses: 5monkeys/cobertura-action@master
-        with:
-          path: src/test.xml
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          minimum_coverage: 41
-
-
-    
+        
