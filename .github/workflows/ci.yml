@@ -77,6 +77,6 @@ jobs:
     
     steps:
       - name: cobertura
-        run: mvn -B clean test cobertura:cobertura
+        run: mvn -B clean test cobertura:cobertura --file pom.xml
    
         
