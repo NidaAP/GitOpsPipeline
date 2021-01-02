@@ -77,7 +77,7 @@ jobs:
     
     steps:
       - name: cobertura
-        run: mvn cobertura:cobertura --file pom.xml
+        run: mvn cobertura:cobertura 
       - uses: 5monkeys/cobertura-action@master
         with:
           path: src/test.xml
