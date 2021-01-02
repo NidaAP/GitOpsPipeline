@@ -78,7 +78,7 @@ jobs:
     steps:
       - name: cobertura
    
-      - uses: 5monkeys/cobertura-action@master
+        uses: 5monkeys/cobertura-action@master
         with:
           path: src/test.xml
           repo_token: ${{ secrets.GITHUB_TOKEN }}
