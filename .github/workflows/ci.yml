@@ -85,7 +85,6 @@ jobs:
       - name: Build and analyze
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}    
-      - name: Jacoco
-        run: mvn -B clean test --file pom.xml jacoco:report 
+        run: mvn -B verify jacoco:report 
    
         
