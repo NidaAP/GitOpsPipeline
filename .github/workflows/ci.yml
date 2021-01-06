@@ -76,15 +76,10 @@ jobs:
     name: Code Coverage
     
     steps:
-      - name: Cache Maven packages
-        uses: actions/cache@v1
-        with:
-          path: ~/.m2
-          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-          restore-keys: ${{ runner.os }}-m2
-      - name: Build and analyze
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}    
-        run: mvn -B verify jacoco:report 
+      - run: echo Should run unit tests.
+      - name: Checkout Code
+        uses: actions/checkout@v1
+      - name: Build and Run Tests
+        run: mvn -B test --file pom.xml jacoco:report 
    
         
