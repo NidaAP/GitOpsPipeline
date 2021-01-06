@@ -76,7 +76,7 @@ jobs:
     name: Code Coverage
     
     steps:
-      - name: cobertura
-        run: mvn -B clean test --file pom.xml cobertura:cobertura 
+      - name: Jacoco
+        run: mvn -B clean test --file pom.xml jacoco:report 
    
         
