@@ -81,7 +81,7 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
         </configuration>
       </execution>
     </executions>
-  </plugin>
+  
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
