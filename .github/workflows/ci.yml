@@ -76,7 +76,7 @@ jobs:
     name: Code Coverage
     
     steps:
-      - name: Cache Maven packages
+    - name: Cache Maven packages
       uses: actions/cache@v1
       with:
         path: ~/.m2
