@@ -102,8 +102,8 @@ jobs:
   
   publish:
     runs-on: ubuntu-latest
-    needs: build
-    name: War
+    needs: War
+    name: ToArtifactory
     
     steps:
       - uses: actions/checkout@v2
