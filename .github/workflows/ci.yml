@@ -91,7 +91,7 @@ jobs:
   War:
     runs-on: ubuntu-latest
     needs: CodeCoverage
-    name: War packaging
+    name: War 
 
     steps:
       - run: echo should packaging war
@@ -106,17 +106,13 @@ jobs:
     name: ToArtifactory
     
     steps:
-      - uses: actions/checkout@v2
-      - name: Set up Maven Central Repository
-        uses: actions/setup-java@v1
-        with:
-          java-version: 1.8
-          id: artifactory
-          username: ARTIFACTORY_USERNAME
-          password: ARTIFACTORY_PASSWORD
+      - run: echo should deploying artifacts
+      - name: Checkout Code
+        uses: actions/checkout@v1
       - name: Publish package
         run: mvn --batch-mode deploy
         env:
+          ARTIFACTORY_URL: $${{ secrets.ARTIFACTORY_URL }}
           ARTIFACTORY_USERNAME: ${{ secrets.ARTIFACTORY_USERNAME }}
           ARTIFACTORY_PASSWORD: ${{ secrets.ARTIFACTORY_PASSWORD }}
   
