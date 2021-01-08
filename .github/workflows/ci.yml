@@ -111,9 +111,9 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-          server-id: artifactory
-          server-username: ARTIFACTORY_USERNAME
-          server-password: ARTIFACTORY_PASSWORD
+          id: artifactory
+          username: ARTIFACTORY_USERNAME
+          password: ARTIFACTORY_PASSWORD
       - name: Publish package
         run: mvn --batch-mode deploy
         env:
