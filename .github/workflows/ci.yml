@@ -98,6 +98,23 @@ jobs:
       - name: War packaging
         run: mvn -X war:war
   
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Maven Central Repository
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+          server-id: artifactory
+          server-username: ARTIFACTORY_USERNAME
+          server-password: ARTIFACTORY_PASSWORD
+      - name: Publish package
+        run: mvn --batch-mode deploy
+        env:
+          ARTIFACTORY_USERNAME: ${{ secrets.ARTIFACTORY_USERNAME }}
+          ARTIFACTORY_PASSWORD: ${{ secrets.ARTIFACTORY_PASSWORD }}
+  
   
 
    
