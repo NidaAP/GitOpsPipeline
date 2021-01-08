@@ -87,7 +87,7 @@ jobs:
       - name: Build and Run Tests
         run: |
         mvn -X org.jacoco:jacoco-maven-plugin:report 
-        gradlew -PenableJaCoCo clean jacocoRootReport
+        
   
   War:
     runs-on: ubuntu-latest
