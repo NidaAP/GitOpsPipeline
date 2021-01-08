@@ -81,10 +81,24 @@ jobs:
     name: Code Coverage
     
     steps:
-      - run: echo Should run unit tests.
+      - run: echo Should run code coverage.
       - name: Checkout Code
         uses: actions/checkout@v1
       - name: Build and Run Tests
-        run: mvn -X org.jacoco:jacoco-maven-plugin:report 
+        run: |
+        mvn -X org.jacoco:jacoco-maven-plugin:report 
+        gradlew -PenableJaCoCo clean jacocoRootReport
+  
+  War:
+    runs-on: ubuntu-latest
+    needs: CodeCoverage
+    name: War packaging
+
+    steps:
+      - run: echo should packaging war
+      - name: Checkout Code
+        uses: actions/checkout@v1
+      - name: War packaging
+        run: mvn -X war:war
    
         

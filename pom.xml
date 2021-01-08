@@ -97,4 +97,12 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 			</plugin>
 		</plugins>
 	</build>
+	<distributionManagement>
+  
+  		<repository>
+			<id>artifactory</id>
+			<name>CalculatorSnapShot</name>
+			<url>http://localhost:8081/artifactory/CalculatorSnapShot</url>
+		</repository>
+	</distributionManagement>
 </project>
