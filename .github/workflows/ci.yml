@@ -139,8 +139,6 @@ jobs:
           server-password: Password1 # env variable for token in deploy
         env:
           ARTIFACTORY_URL: $${{ secrets.ARTIFACTORY_URL }}
-          
- 
         run: mvn deploy 
   
 
