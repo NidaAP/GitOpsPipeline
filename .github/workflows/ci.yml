@@ -110,7 +110,7 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v1
       - name: Publish package
-        run: mvn --batch-mode deploy
+        run: mvn --batch-mode deploy -e
         env:
           ARTIFACTORY_URL: $${{ secrets.ARTIFACTORY_URL }}
           ARTIFACTORY_USERNAME: ${{ secrets.ARTIFACTORY_USERNAME }}
