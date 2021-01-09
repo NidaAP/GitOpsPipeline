@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Sat Jan 02 17:18:37 IST 2021
+maven-war-plugin-3.3.1.jar>central=
+maven-war-plugin-3.3.1-sources.jar>central=
+maven-war-plugin-3.3.1.pom>central=
