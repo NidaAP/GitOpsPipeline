@@ -125,18 +125,17 @@ jobs:
     
     steps:
       - run: echo should deploying artifacts
-      - name: display location of settings
-        run: echo ${{ github.workspace }}
+        
       
       - name: Checkout Code
         uses: actions/checkout@v1
       - name: Publish package
-        run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
         env:
           ARTIFACTORY_URL: $${{ secrets.ARTIFACTORY_URL }}
           GITHUB_ACTOR: ${{ secrets.ARTIFACTORY_USERNAME }}
           GITHUB_TOKEN: ${{ secrets.ARTIFACTORY_PASSWORD }}
-  
+ 
+        run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
   
 
    
