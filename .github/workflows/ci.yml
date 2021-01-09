@@ -20,9 +20,23 @@ jobs:
         java-version: 1.8
         server-id: artifactory # Value of the distributionManagement/repository/id field of the pom.xml
         settings-path: ${{ github.workspace }} # location for the settings.xml file
-        
+
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+    
+    - name: folder check
+      run: ls -a
+    
+    - name: target folder
+      run: |
+      cd target
+      ls -a
+
+    - name: github workspace
+      run: echo ${{ github.workspace }}
+    
+    - name: display settings
+      run: cat ${{ github.workspace}}/settings.xml
   
   StaticAnalysis:
     runs-on: ubuntu-latest
@@ -103,6 +117,7 @@ jobs:
       - name: War packaging
         run: mvn -X war:war
   
+
   publish:
     runs-on: ubuntu-latest
     needs: War
@@ -110,14 +125,17 @@ jobs:
     
     steps:
       - run: echo should deploying artifacts
+      - name: display location of settings
+        run: echo ${{ github.workspace }}
+      
       - name: Checkout Code
         uses: actions/checkout@v1
       - name: Publish package
-        run: mvn --batch-mode deploy -e
+        run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
         env:
           ARTIFACTORY_URL: $${{ secrets.ARTIFACTORY_URL }}
-          ARTIFACTORY_USERNAME: ${{ secrets.ARTIFACTORY_USERNAME }}
-          ARTIFACTORY_PASSWORD: ${{ secrets.ARTIFACTORY_PASSWORD }}
+          GITHUB_ACTOR: ${{ secrets.ARTIFACTORY_USERNAME }}
+          GITHUB_TOKEN: ${{ secrets.ARTIFACTORY_PASSWORD }}
   
   
 
