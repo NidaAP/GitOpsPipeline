@@ -21,6 +21,10 @@ jobs:
         server-id: artifactory # Value of the distributionManagement/repository/id field of the pom.xml
         settings-path: ${{ github.workspace }} # location for the settings.xml file
 
+        server-id: artifactory # Value of the distributionManagement/repository/id field of the pom.xml
+        server-username: ARTIFACTORY_USERNAME # env variable for username in deploy
+        server-password: ARTIFACTORY_PASSWORD # env variable for token in deploy
+
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     
@@ -130,12 +134,16 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v1
       - name: Publish package
+        with:
+          server-id: artifactory # Value of the distributionManagement/repository/id field of the pom.xml
+          server-username: ARTIFACTORY_USERNAME # env variable for username in deploy
+          server-password: ARTIFACTORY_PASSWORD # env variable for token in deploy
         env:
           ARTIFACTORY_URL: $${{ secrets.ARTIFACTORY_URL }}
-          GITHUB_ACTOR: ${{ secrets.ARTIFACTORY_USERNAME }}
-          GITHUB_TOKEN: ${{ secrets.ARTIFACTORY_PASSWORD }}
+          ARTIFACTORY_USERNAME: ${{ secrets.ARTIFACTORY_USERNAME }}
+          ARTIFACTORY_PASSWORD: ${{ secrets.ARTIFACTORY_PASSWORD }}
  
-        run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
+        run: mvn deploy 
   
 
    
