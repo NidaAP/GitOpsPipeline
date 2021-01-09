@@ -29,8 +29,8 @@ jobs:
     
     - name: target folder
       run: |
-      cd target
-      ls -a
+        cd target
+        ls -a
 
     - name: github workspace
       run: echo ${{ github.workspace }}
