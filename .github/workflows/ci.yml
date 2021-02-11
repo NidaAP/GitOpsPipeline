@@ -19,7 +19,7 @@ jobs:
       with:
         java-version: 1.8
         server-id: artifactory # Value of the distributionManagement/repository/id field of the pom.xml
-        settings-path: settings.xml # location for the settings.xml file
+     #   settings-path: settings.xml # location for the settings.xml file
 
         server-username: ARTIFACTORY_USERNAME # env variable for username in deploy
         server-password: ARTIFACTORY_PASSWORD # env variable for token in deploy
