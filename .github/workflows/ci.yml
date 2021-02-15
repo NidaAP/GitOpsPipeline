@@ -34,9 +34,11 @@ jobs:
       run: |
         cd target
         ls -a
-        echo env.server-username
+        
 
     - name: github workspace
+      debug:
+        msg: echo env.server-username
       run: echo ${{ github.workspace }}
     
     - name: display settings
