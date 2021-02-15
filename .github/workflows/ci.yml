@@ -34,7 +34,7 @@ jobs:
       run: |
         cd target
         ls -a
-        echo $env.server-username
+        echo "$env.server-username"
         
 
     - name: github workspace
