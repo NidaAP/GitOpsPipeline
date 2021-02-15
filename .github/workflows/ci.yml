@@ -21,8 +21,8 @@ jobs:
         server-id: artifactory # Value of the distributionManagement/repository/id field of the pom.xml
      #   settings-path: settings.xml # location for the settings.xml file
 
-        server-username: ARTIFACTORY_USERNAME # env variable for username in deploy
-        server-password: ARTIFACTORY_PASSWORD # env variable for token in deploy
+        server-username: $${{ secrets.ARTIFACTORY_USERNAME }} # env variable for username in deploy
+        server-password: $${{ secrets.ARTIFACTORY_PASSWORD }} # env variable for token in deploy
 
     - name: Build with Maven
       run: mvn -B package --file pom.xml
@@ -34,6 +34,7 @@ jobs:
       run: |
         cd target
         ls -a
+        echo env.server-username
 
     - name: github workspace
       run: echo ${{ github.workspace }}
@@ -128,7 +129,7 @@ jobs:
     steps:
       - run: echo should deploying artifacts
       - name: Set up JDK 11
-        run: echo $${{ ARTIFACTORY_USERNAME }}
+        run: echo $${{ env.ARTIFACTORY_USERNAME }}
         
       - name: Checkout Code
         uses: actions/checkout@v1
