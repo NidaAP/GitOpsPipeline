@@ -135,7 +135,7 @@ jobs:
           servers: '[{ "id": "artifactory", "username": "${{ secrets.ARTIFACTORY_USERNAME }}", "password": "${{ secrets.ARTIFACTORY_PASSWORD }}" }]'
 
       - name: Publish package
-        run: mvn --batch-mode deploy
+        run: mvn --file pom.xml --batch-mode deploy
         
   
 
