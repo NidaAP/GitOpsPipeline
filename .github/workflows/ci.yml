@@ -31,10 +31,12 @@ jobs:
       run: ls -a
     
     - name: target folder
+      env:
+        username: admin
       run: |
         cd target
         ls -a
-        echo "$env.server-username"
+        echo "$username"
         
 
     - name: github workspace
