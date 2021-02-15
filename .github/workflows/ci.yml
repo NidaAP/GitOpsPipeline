@@ -132,8 +132,7 @@ jobs:
       - name: Checkout Code
         uses: s4u/maven-settings-action@v2.3.0
         with:
-        servers: |
-          [{ "id": "sonatype-nexus-snapshots","username": "${{ secrets.ARTIFACTORY_USERNAME }}","password": "${{ secrets.ARTIFACTORY_PASSWORD }}" }]
+          servers: '[{ "id": "artifactory", "username": "${{ secrets.ARTIFACTORY_USERNAME }}", "password": "${{ secrets.ARTIFACTORY_PASSWORD }}" }]'
 
       - name: Publish package
         run: mvn --batch-mode deploy
