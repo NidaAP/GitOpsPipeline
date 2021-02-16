@@ -100,51 +100,7 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 		</plugins>
 	</build>
 	
-	<profiles>
-  <profile>
-    <id>github-actions</id>
-    <activation>
-      <property>
-        <name>env.BUILD_ENV</name>
-        <value>github-actions</value>
-      </property>
-    </activation>
-    <repositories>
-      <repository>
-        <id>artifactory</id>
-        <name>CalculatorSnapShot</name>
-			<url>http://localhost:8081/artifactory/CalculatorSnapShot</url>
-        <releases>
-          <enabled>true</enabled>
-        </releases>
-        <snapshots>
-          <enabled>false</enabled>
-        </snapshots>
-      </repository>
-    </repositories>
-    <pluginRepositories>
-      <pluginRepository>
-        <id>artifactory</id>
-        <name>CalculatorSnapShot</name>
-			<url>http://localhost:8081/artifactory/CalculatorSnapShot</url>
-        <releases>
-          <enabled>true</enabled>
-        </releases>
-        <snapshots>
-          <enabled>false</enabled>
-        </snapshots>
-      </pluginRepository>
-      <pluginRepository>
-        <snapshots>
-          <enabled>false</enabled>
-        </snapshots>
-        <id>central</id>
-        <name>bintray-plugins</name>
-        <url>https://jcenter.bintray.com</url>
-      </pluginRepository>
-    </pluginRepositories>
-  </profile>
-</profiles>
+
 	<distributionManagement>
   
   		<repository>
