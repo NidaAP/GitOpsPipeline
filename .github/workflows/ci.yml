@@ -130,5 +130,5 @@ jobs:
       - name: publish
         run: |
           mvn -B package --file pom.xml
-          mvn --batch-mode deploy
+        #  mvn --batch-mode deploy
       
