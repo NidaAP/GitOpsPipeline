@@ -122,7 +122,6 @@ jobs:
     name: ToArtifactory
          
     steps:
-    steps:
       - name: Checkout Code
         uses: s4u/maven-settings-action@v2.3.0
         with:
