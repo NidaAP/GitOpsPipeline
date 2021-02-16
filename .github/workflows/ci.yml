@@ -21,14 +21,7 @@ jobs:
     - name: Setup Maven settings.xml
       uses: whelk-io/maven-settings-xml-action@v11
       with:
-        servers: |
-            '[
-              {
-                "id": "artifactory",
-                "username": "${{ secrets.ARTIFACTORY_USERNAME }}",
-                "password": "${{ secrets.ARTIFACTORY_PASSWORD }}"
-              }
-            ]'
+        servers:  '[{ "id": "artifactory", "username": "${{ secrets.ARTIFACTORY_USERNAME }}", "password": "${{ secrets.ARTIFACTORY_PASSWORD }}" }]'
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
