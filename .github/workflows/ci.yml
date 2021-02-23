@@ -129,6 +129,6 @@ jobs:
       
       - name: publish
         run: |
-          mvn -B package --file ${{ github.workspace }}/pom.xml
+          mvn -B package --file ${{ github.workspace }}/pom.xml -X
         #  mvn --batch-mode deploy
       
