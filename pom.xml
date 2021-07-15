@@ -102,11 +102,10 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	
 
 	<distributionManagement>
-  
-  		<repository>
-			<id>artifactory</id>
-			<name>CalculatorSnapShot</name>
-			<url>http://localhost:8081/artifactory/CalculatorSnapShot</url>
+		<repository>
+			<id>github</id>
+			<name>GitHub NidaAP Apache Maven Packages</name>
+			<url>https://maven.pkg.github.com/nidaap/GitOpsPipeline</url>
 		</repository>
 	</distributionManagement>
 </project>
